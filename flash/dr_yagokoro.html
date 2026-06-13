@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Dr. YAGOKORO</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+    <style>
+        body {
+            font-size: 10pt;
+            line-height: 13pt;
+            color: #481204;
+            background-color: #cccccc;
+            font-family: "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
+            margin: 0;
+            padding: 20px 0px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #cc3300;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            border: 0px;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 10px 50px;
+            width: 740px;
+        }
+            
+        .title {
+            text-align: left;
+            font-size: 18pt;
+            margin: 10px 0px;
+            padding: 7px 0pt 7px 20px;
+            background-image: url("style/title_bg.gif");
+            background-repeat: no-repeat;
+        }
+
+        .flash {
+            margin: 10px 0;
+        }
+
+        .note {
+            border: solid 2pt #666666;
+            margin: 20px 0px;
+            padding: 10pt 20pt;
+            text-align: right;
+        }
+
+        .back {
+            text-align: right;
+            margin: 0pt 0pt 10pt 0pt;
+        }
+
+        .comment {
+            margin: 20px 0px;
+            padding: 10px 20px;
+            background-color: #eeeeee;
+            text-align: left;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+
+<table align="center"><tr><td>
+<div class="container">
+    <div class="title">Dr. YAGOKORO</div>
+    
+    <div class="flash">
+        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="600" height="600" id="dr_yagokoro" align="middle">
+            <param name="allowScriptAccess" value="sameDomain"/>
+            <param name="movie" value="swf/dr_yagokoro.swf"/>
+            <param name="allowFullScreen" value="false"/>
+            <param name="quality" value="high"/>
+            <param name="wmode" value="opaque"/>
+            <param name="bgcolor" value="#ffffff"/>
+            <embed src="swf/dr_yagokoro.swf" quality="high" wmode="opaque" bgcolor="#ffffff" width="600" height="600" name="dr_yagokoro" align="middle" allowscriptaccess="sameDomain" type="application/x-shockwave-flash"/>
+        </object>
+    </div>
+    
+    <div class="note">
+        マウス操作のパズルゲームです。<br/>
+	タイトルもゲームデザインもBGMも某パズルゲームのアレンジですが、<br/>
+	ゲーム性はほぼ別物になってます。<br/>
+	<br/>
+	得られる得点 = 100 * 病原菌の高さ * ( 1+2+...+( カプセルを消した数 -1 ) ) です。<br/>
+	同時に多くのカプセルを消すと爆発的に得点が増えますので、<br/>
+	上まで埋まらない程度に耐えるのが高得点のカギかと思います。<br/>
+	<br/>
+	まずはゲームを開始したときの出オチ感を楽しんでいただければ。<br/>
+	BGMはいろいろごちゃまぜ（某「FEVER」＋東方曲２曲＋初音ミク）でカオスです。<br/>
+	ある意味評判がいいみたいなのでmp3も公開しておきます。<br/>
+	<br/>
+	※本家のストーリーではえーりんに非はないんですが、<br/>
+	　こっちはヤゴコロ先生なのでいろいろと間違った設定になってます。<br/>
+	<br/>
+	<a href="swf/dr_yagokoro.swf">本体ダウンロード（右クリックで保存）</a><br/>
+	<a href="ex-assets/dr_yagokoro.mp3">BGMダウンロード（mp3）</a><br/>
+	</div>
+
+    <div class="comment" style="width:620px;">
+        ■ コメントをお願いします ■<br><br>
+        Name <input type="text" size="15" style="margin-right: 5px;"> 
+        Color <select style="margin-right: 5px;"><option>黒</option></select> 
+        Line <select style="margin-right: 5px;"><option>10</option></select> 
+        <input type="button" value="投稿/リロード"><br>
+        <div style="margin-top: 5px;">
+            Comment <input type="text" size="65">
+        </div>
+        <br>
+        <span style="color:#cc3300; font-size:9pt;">uajBBS One ver.1.0.0</span>
+    </div>
+
+    <div class="back">
+        <a href="../index.html"><img src="style/back.gif" alt="戻る"/></a>
+    </div>
+</div>
+</td></tr></table>
+
+</body>
+</html>
+</td></tr></table>
+
+</body>
+</html>

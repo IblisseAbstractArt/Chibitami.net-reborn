@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>BEVENTLAED</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+    <style>
+        body {
+            font-size: 10pt;
+            line-height: 13pt;
+            color: #481204;
+            background-color: #cccccc;
+            font-family: "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
+            margin: 0;
+            padding: 20px 0px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #cc3300;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            border: 0px;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 10px 50px;
+            width: 740px;
+        }
+            
+        .title {
+            text-align: left;
+            font-size: 18pt;
+            margin: 10px 0px;
+            padding: 7px 0pt 7px 20px;
+            background-image: url("style/title_bg.gif");
+            background-repeat: no-repeat;
+        }
+
+        .flash {
+            margin: 10px 0;
+        }
+
+        .note {
+            border: solid 2pt #666666;
+            margin: 20px 0px;
+            padding: 10pt 20pt;
+            text-align: right;
+        }
+
+        .back {
+            text-align: right;
+            margin: 0pt 0pt 10pt 0pt;
+        }
+
+        .comment {
+            margin: 20px 0px;
+            padding: 10px 20px;
+            background-color: #eeeeee;
+            text-align: left;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+
+<table align="center"><tr><td>
+<div class="container">
+    <div class="title">BEVENTLAED</div>
+    
+    <div class="flash">
+        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="640" height="480" id="beventlaed" align="middle">
+            <param name="allowScriptAccess" value="sameDomain"/>
+            <param name="movie" value="swf/beventlaed.swf"/>
+            <param name="allowFullScreen" value="false"/>
+            <param name="quality" value="high"/>
+            <param name="wmode" value="opaque"/>
+            <param name="bgcolor" value="#ffffff"/>
+            <embed src="swf/beventlaed.swf" quality="high" wmode="opaque" bgcolor="#ffffff" width="640" height="480" name="beventlaed" align="middle" allowscriptaccess="sameDomain" type="application/x-shockwave-flash"/>
+        </object>
+    </div>
+    
+    <div class="note">
+        <a href="http://mesopota.net/" target="_blank">迷走ポタージュ</a>「ワイン味」にて頒布したゲーム。<br/>
+        頒布してからけっこう時期が経ったので、サイトで公開する運びとなりました。<br/>
+        <br/>
+        「東方星蓮船」のベントラーシステムをパズルゲームにしたものです。<br/>
+        自機昇格記念（制作当時）で早苗さんフィーチャー。<br/>
+        <br/>
+        タイトルは「ビベントラード」と読みます。BEJEWELEDのもじり。<br/>
+        <br/>
+        ■操作について補足<br/>
+        <br/>
+        『マウスのボタンを押す→ドラッグで３つのベントラーを選択→ボタンを離す』が基本操作です。<br/>
+        選択する３つのベントラーは隣接して一直線にならんでなければなりません。<br/>
+        同じ色３つ、または赤青緑を１つずつ選択すると、消すことが出来ます。<br/>
+        <br/>
+        ボムは画面左下の緑色の部分、BOMBって書いてあるところをクリックです。<br/>
+        おじゃまが消えるだけじゃなく、盤面が普通のベントラーで埋め尽くされますので<br/>
+        いっきに体制の立て直しが可能です。<br/>
+        コンボ途中でBOMB発動することで、コンボを引き伸ばすことも出来たり。<br/>
+        <br/>
+        後半はえげつないほどおじゃまベントラーが降ってきますので、<br/>
+        赤青緑のセットをたくさん消しておじゃまの割合を減らさなければなりません。<br/>
+        なれるまで見つけるのが大変ですが、がんばってください。<br/>
+        <br/>
+        BGM原曲：信仰は儚き人間の為に<br/>
+        <a href="ex-assets/beventlaed.mp3">BGMダウンロード（mp3）</a><br/>
+        <br/>
+        <a href="ex-assets/beventlaed.exe">exe版ダウンロード</a><br/>
+    </div>
+
+    <div class="comment" style="width:620px;">
+        ■ コメントをお願いします ■<br><br>
+        Name <input type="text" size="15" style="margin-right: 5px;"> 
+        Color <select style="margin-right: 5px;"><option>黒</option></select> 
+        Line <select style="margin-right: 5px;"><option>10</option></select> 
+        <input type="button" value="投稿/リロード"><br>
+        <div style="margin-top: 5px;">
+            Comment <input type="text" size="65">
+        </div>
+        <br>
+        <span style="color:#cc3300; font-size:9pt;">uajBBS One ver.1.0.0</span>
+    </div>
+
+    <div class="back">
+        <a href="../index.html"><img src="style/back.gif" alt="戻る"/></a>
+    </div>
+</div>
+</body>
+</td></tr></table>
+</html>
