@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Chibitami Reborn - Flash Archive</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 10pt;
+            line-height: 13pt;
+            color: #481204;
+            background-color: #cccccc;
+            font-family: "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #cc3300;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table { padding: 0px; margin: 0px; }
+        img { border-style: none; }
+        strong { font-weight: bold; }
+        li { padding: 5px 0px; }
+
+        .whole_container {
+            padding: 30px 0px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .whole {
+            background-color: #ffffff;
+            width: 800px;
+            padding: 0px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            border: 1px solid #999;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #481204;
+            background-image: url('/images/titlebg.gif');
+            background-repeat: no-repeat;
+            background-position: left top;
+            width: 800px;
+            height: 200px;
+        }
+
+        .header_title {
+            padding: 30px 0px 0px 30px;
+            float: left;
+            text-align: left;
+        }
+
+        .header_swf {
+            margin: 0px;
+            padding: 0px;
+            float: right;
+        }
+
+        .left {
+            float: left;
+            width: 218px;
+            padding: 10px 10px;
+            background-color: #f2f2f2;
+            border-right: 1px dashed #ccc;
+        }
+
+        .leftblock {
+            padding: 5px 0px 10px 0px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.1s;
+            width: 100%;
+        }
+        
+        .leftblock:hover { transform: scale(1.02); }
+        
+        .leftblock img {
+            border: 1px solid #333;
+            margin-bottom: 5px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .leftblock strong {
+            display: block;
+            font-size: 13px;
+            color: #cc3300;
+        }
+
+        .bookmarks {
+            padding: 10px 10px;
+            margin-top: 25px;
+            border-top: 1px dashed #ccc;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .bookmarks text {
+            display: block;
+            margin-bottom: 8px;
+            color: #481204;
+            font-weight: bold;
+        }
+
+        .right {
+            float: right;
+            padding: 10px 10px;
+            width: 560px;
+        }
+
+        .topic {
+            background-image: url('/images/topicbg.gif');
+            background-repeat: no-repeat;
+            background-position: 0% 0%; 
+            width: auto;
+            padding: 10px 0px 10px 0px;
+        }
+
+        .topic_title {
+            font-size: 16pt;
+            font-weight: bold;
+            font-family: sans-serif;
+            padding: 10px 15px;
+            color: #481204;
+        }
+
+        .topic_date {
+            color: #aa8888;
+            font-family: "Whimsy TT", sans-serif;
+            padding: 10px 20px;
+        }
+
+        .topic_content {
+            padding: 20px 15px;
+            width: 540px;
+        }
+
+        #flash-runtime-container {
+            width: 100%;
+            height: 450px;
+            background-color: #000;
+            border: 2px solid #481204;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .footer {
+            clear: both;
+            text-align: right;
+            padding: 10px 20px;
+            font-size: 9pt;
+            color: #ffffff;
+            background-color: #481204;
+        }
+    </style>
+</head>
+<body>
+
+<div class="whole_container">
+    <div class="whole">
+
+        <div class="header">
+            <div class="header_title">
+                <img alt="Chibitami.net/works" src="/images/title.gif" /><br/><br/>
+                
+                <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="210" height="40" id="counter" align="middle">
+                   <div style="text-align: left; position: relative; left: 190px;">
+                    <param name="allowScriptAccess" value="sameDomain"/>
+                    <param name="movie" value="/images/counter.swf"/>
+                    <param name="wmode" value="transparent"/>
+                    <param name="quality" value="high"/>
+                    <embed src="/images/counter.swf" quality="high" width="210" height="40" wmode="transparent" name="counter" align="middle" allowscriptaccess="sameDomain" type="application/x-shockwave-flash"></embed>
+                </object>
+            </div>
+           
+            <div class="header_swf">
+                <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="350" height="200" id="title_anim" align="middle">
+                    <param name="allowScriptAccess" value="sameDomain"/>
+                    <param name="movie" value="/images/title.swf"/>
+                    <param name="wmode" value="transparent"/>
+                    <param name="quality" value="high"/>
+                    <embed src="/images/title.swf" quality="high" width="350" height="200" wmode="transparent" name="title_anim" align="middle" allowscriptaccess="sameDomain" type="application/x-shockwave-flash"></embed>
+                </object>
+            </div>
+        </div>
+        
+        <div style="clear: both;"></div>
+
+        <div class="left">
+            <div style="text-align:center; margin-bottom:10px;">
+                <img alt="FLASH GAMES" src="./images/flashgames.gif" onerror="this.style.display='none';">
+             </div>
+            
+            <div class="leftblock">
+		<a href="/flash/beventlaed.html"><img alt="" src="/images/beventlaed_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/beventlaed.html">BEVENTLAED</a> 】</strong><br/>
+		ベントラーで落ちものパズル
+	</div>
+	<div class="leftblock">
+		<a href="./flash/sunshinewars.html"><img alt="" src="/images/sunshinewars_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/sunshinewars.html">サンシャイン宇宙戦争</a> 】</strong><br/>
+		「サン牧」にんじんゲー
+	</div>
+	<div class="leftblock">
+		<a href="./flash/sweeper.html"><img alt="" src="/images/sweeper_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/sweeper.html">まいんスイーパー</a> 】</strong><br/>
+		まいんちゃんの服スイーパー<br/>
+		<strong>＜１８禁注意！＞</strong>
+	</div>
+	<div class="leftblock">
+		<a href="./flash/blobression.html"><img alt="" src="/images/blobression_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/blobression.html">BLOBRESSION!</a> 】</strong><br/>
+		連鎖泡消しミニゲーム
+	</div>
+	<div class="leftblock">
+		<a href="./flash/fla2flan.html"><img alt="" src="/images/fla2flan_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/fla2flan.html">ふらふらフラン</a> 】</strong><br/>
+		妹様ふらふらフラゲ
+	</div>
+	<div class="leftblock">
+		<a href="./flash/kurukuri.html"><img alt="" src="/images/kurukuri_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/kurukuri.html">くるくり</a> 】</strong><br/>
+		ちょっと新感覚な落ちものパズル<br/>
+		ネット対戦もできます
+	</div>
+	<div class="leftblock">
+		<a href="./flash/dr_yagokoro.html"><img alt="" src="/images/dr_yagokoro_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/dr_yagokoro.html">Dr.YAGOKORO</a> 】</strong><br/>
+		逆Dr.MARIOなパズルゲーム
+	</div>
+	<div class="leftblock">
+		<a href="./flash/bfff.html"><img alt="" src="/images/bfff_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/bfff.html">Buttefly Flies For Fry</a> 】</strong><br/>
+		雀肉を食べる飛行ゲーム
+	</div>
+	<div class="leftblock">
+		<a href="./flash/redmagic.html"><img alt="" src="/images/redmagic_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/redmagic.html">Red Magic</a> 】</strong><br/>
+		紅いパズルゲーム
+	</div>
+	<div class="leftblock">
+		<a href="./flash/sculpture.html"><img alt="" src="/images/sculpture_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/sculpture.html">中国すかるぷちゅあ</a> 】</strong><br/>
+		エセ弾幕風クリックシューティング
+	</div>
+	<div class="leftblock">
+		<a href="./flash/marippy.html"><img alt="" src="/images/marippy_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/marippy.html">MARIPPY</a> 】</strong><br/>
+		某レトロゲームの東方アレンジ
+	</div>
+	<div class="leftblock">
+		<table border="0" cellspacing="0" cellpadding="0"><tr>
+		<td width="80"><a href="./flash/cirno_training.html"><img alt="" src="/images/cirno_training_bnr.png"/></a></td>
+		<td width="120" valign="bottom">
+		<strong>【<a href="./flash/cirno_training.html">&#9320;トレ</a>】</strong><br/>
+		バカになるための<br/>計算ミニゲーム</td>
+		</tr></table>
+	</div>
+	<div class="leftblock">
+		<table border="0" cellspacing="0" cellpadding="0"><tr>
+		<td width="80"><a href="./flash/so_nano_ka.html"><img alt="" src="/images/so_nano_ka_bnr.png"/></a></td>
+		<td width="120" valign="bottom">
+		<strong>【<a href="./flash/so_nano_ka.html">そーなのかー♪</a>】</strong><br/>
+		そーそーなのかー<br/>そーなのなのかー</td>
+		</tr></table>
+	</div>
+      <div style="text-align:center; margin-bottom:10px;">
+                <img alt="FLASH MOVIES" src="./images/flashmovies.gif" onerror="this.style.display='none';">
+             </div>
+<div class="leftblock">
+		<a href="./flash/valentine.html"><img alt="" src="/images/valentine_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/redmagic.html">がんばる！バレンタイン</a> 】</strong><br/>
+		オチがひどい
+	</div>
+   <div class="leftblock">
+		<a href="./flash/rubbit.html"><img alt="" src="/images/rubbit_bnr.png"/></a><br/>
+		<strong>【 <a href="/flash/redmagic.html">rubb-it girls</a> 】</strong><br/>
+		ラヴィFlash
+	</div>
+             <div class="bookmarks">
+                <text>■ ABOUT THIS SITE</text>
+                ここはyu-kiの制作物（主にFlash）を公開しているアーカイブページです。<br>
+                ブラウザのRuffleエミュレータを通じて、当時のゲームをそのままプレイすることができます。<br><br>
+   
+                <text>■ BOOKMARKS</text>
+      <strong>【 Flash/AS/Movie 】</strong><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www.be-interactive.org/" target="_blank">BeInteractive!</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://skyflower.yukishigure.com/" target="_blank">Chained Memorization</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://xoukrof.at.infoseek.co.jp/" target="_blank">Dividice</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://heriet.info/" target="_blank">Heriet</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://icyas.dip.jp/kaleidoscope/" target="_blank">Kaleidoscope</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www.l-room.net/" target="_blank">locker room production</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www.miyasuke.net/" target="_blank">miyasuke.net</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://mkn2.com/" target="_blank">MKN2</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://nextframe.jp/" target="_blank">NEXTFRAME[!]</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://shobofla.net/" target="_blank">shobofla.net</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://tetlapot.net/" target="_blank">TETLA POT</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://tigosfactory.hp.infoseek.co.jp/" target="_blank">tigosFactory</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www.yama-ko.net/" target="_blank">yama-ko.net</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://snowy-place.net/" target="_blank">snowy place</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www.kaikoga.net/" target="_blank">蚕蛾総合集積所</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://tail.s68.xrea.com/" target="_blank">しっぽのとこ</a><br/>
+	</div>
+	<div class="bookmarks">
+		<strong>【 お世話になってます 】</strong><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www.geocities.jp/nyokikoko/" target="_blank">Amnesia</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://baton.holy.jp/" target="_blank">Batons</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www.dobuusagi.com/" target="_blank">dBu music</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www.geocities.jp/eternal_notes/" target="_blank">Eternal Notes</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www.sachika.net/" target="_blank">Happy Egg</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www.tam-music.com/index.html" target="_blank">Tam Music Factory</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://so-nanoka.net/" target="_blank">えるまいなー</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://osabisi.sakura.ne.jp/m2/" target="_blank">ザ・マッチメイカァズ</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://mesopota.net/" target="_blank">迷走ポタージュ</a><br/>
+	</div>
+	<div class="bookmarks">
+		<strong>【 紹介してもらってます 】</strong><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://flash.matrix.jp/" target="_blank">FlashCollection</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://gilcrows.blog17.fc2.com/" target="_blank">GilCrowsの映像技術研究所</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://iiaccess.net/" target="_blank">イイ・アクセス</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://sshiori.14.dtiblog.com/" target="_blank">制作のしおり</a><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://masutaaa.blog86.fc2.com/" target="_blank">東方なブログ</a><br/>
+	</div>
+	<div class="bookmarks">
+		<strong>【 ネタもと 】</strong><br/>
+		<a href="https://web.archive.org/web/20130815142447/http://www16.big.or.jp/~zun/" target="_blank">上海アリス幻樂団</a><br/>
+	</div>
+   <div class="bookmarks">
+		<a href="https://web.archive.org/web/20130815142447/http://www.adobe.com/go/getflashplayer_jp" target="_blank">
+		<img alt="" src="images/getflashplayer.gif"/></a>
+	</div>
+   </div>
+       
+        <div class="right">
+           
+              <div class="topic">
+               <div class="topic_title">Chibitami Reborn site launch</div>
+               <div class="topic_date">Written at: 2026/13/06</div>
+                
+               <div class="topic_content">
+                   After a session of reconstructing everthing, finally the site can be launched for everyone!<br><br>
+                   based on the original site from 2008, all menus were recreated just like yu-ki did before with all games and urls working<br><br>
+                   hope you like seeing this old site that as been reconstructed by myself<br><br>
+               </div>
+            </div>
+
+             <div class="topic">
+                <div class="topic_title" id="display-title">Welcome to Chibitami Archive</div>
+                <div class="topic_date" id="display-date">Written at: 2026/12/06</div>
+                
+                <div class="topic_content" id="welcome-message">
+                    いらっしゃいませ。<br><br>
+                    This is the archive of Flash projects created by <strong>yu-ki</strong> (chibitami.net/works).<br>
+                    this is a sub-project that may be related to the Meiso Potage Flash Archive in some games but this chibitami archive is <strong>ONLY RELATED</strong> to flash games created by yu-ki.<br>
+                    this also includes games that were exclusive from Meiso Potage events that were not meant to be played online.<br>  
+                </div>
+      
+
+                <div id="flash-runtime-container"></div>
+            </div>
+        </div>
+
+        <div class="footer">	
+            Copyright(C) 2006-2010 by yu-ki / Recreated 2026 by Average Rumia<br/>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html></html>
